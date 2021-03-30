@@ -1,0 +1,97 @@
+#include"Input.h"
+#include"Sprite.h"
+#include"Object3d.h"
+#include"WinApp.h"
+#include"DirectXCommon.h"
+#include"SceneManager.h"
+
+
+// Windows アプリでのエントリーポイント(main 関数)
+int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
+{
+	WinApp* win = nullptr;
+	DirectXCommon* dxCommon = nullptr;
+	Input* input = nullptr;
+	//Audio* audio = nullptr;
+	//Sprite* sprite = nullptr;
+	//Object3d* object3d = nullptr;
+	SceneManager* sceneManager = nullptr;
+
+	//ゲームウィンドウ作成
+	win = new WinApp();
+	win->CreateGameWindow();
+
+	//DirectXの初期化処理　ここから
+	dxCommon = new DirectXCommon();
+	dxCommon->Initialize(win);
+
+	//初期化
+	input = new Input();
+	input->Initialize(win->GetHwnd(),win->GetInstance());
+
+	//sprite = new Sprite();
+	//sprite->StaticInitialize(dxCommon->GetDevice(), win->window_width, win->window_height);
+
+	// スプライト静的初期化
+	if (!Sprite::StaticInitialize(dxCommon->GetDevice(), win->window_width,win->window_height)) 
+	{
+		assert(0);
+		return 1;
+	}
+
+	//Audioの初期化
+	//audio = new Audio();
+	//if (!audio->Initialize()) 
+	//{
+	//	assert(0);
+	//	return 1;
+	//}
+
+	//オブジェクトの初期化
+	Object3d::StaticInitialize(dxCommon->GetDevice());
+
+	//ゲームシーンの初期化
+	sceneManager = new SceneManager();
+	sceneManager->Initialize(dxCommon, input);
+
+	while (1)
+	{
+		MSG msg{};
+		//メッセージがある？
+		if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
+		{
+			TranslateMessage(&msg);//キー入力メッセージの処理
+			DispatchMessage(&msg);//プロシージャにメッセージを送る
+		}
+		//終了メッセージが来たらループを抜ける
+		if (msg.message == WM_QUIT)
+		{
+			break;
+		}
+
+		//入力関係更新
+		input->Update();
+
+		//ゲームシーンの毎フレーム処理
+		sceneManager->Update();
+
+		//描画前の処理
+		dxCommon->PreDraw();
+		
+		//ゲームシーン描画
+		sceneManager->Draw();
+
+		//描画後の処理
+		dxCommon->PostDraw();
+		//DirectXの毎フレーム処理　ここまで
+	}
+	safe_delete(dxCommon);
+	safe_delete(sceneManager);
+	safe_delete(input);
+	//safe_delete(audio);
+	
+	//ウィンドウクラスを登録解除
+	win->TerminateGameWindow();
+	safe_delete(win);
+	return 0;
+}

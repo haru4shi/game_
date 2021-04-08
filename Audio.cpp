@@ -4,6 +4,8 @@
 
 #pragma comment(lib,"xaudio2.lib")
 
+//ƒeƒXƒg
+
 bool Audio::Initialize()
 {
 	HRESULT result;

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>C:\Users\K019G1566\Desktop\ゲーム大賞制作\x64\Debug\MyEngine.exe</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>C:\Users\K019G1566\Desktop\ゲーム大賞制作\x64\Debug\BasicPixelShader.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\K019G1566\Desktop\ゲーム大賞制作\x64\Debug\BasicVertexShader.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\K019G1566\Desktop\ゲーム大賞制作\x64\Debug\SpritePixelSharder.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\K019G1566\Desktop\ゲーム大賞制作\x64\Debug\SpriteVertexShader.cso</FullPath>
+    </ContentFile>
+  </ContentFiles>
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

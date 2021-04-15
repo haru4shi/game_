@@ -39,11 +39,11 @@ void GameScene::Draw()
 
 #pragma region 3Dオブジェクト描画
 	// 3Dオブジェクト描画前処理
-	//object3d->PreDraw(cmdList);
+	Object3d::PreDraw(cmdList);
 	// 3Dオブクジェクトの描画
-	object3d->Draw(cmdList);
+	object3d->Draw();
 
 	// 3Dオブジェクト描画後処理
-	//object3d->PostDraw();
+	Object3d::PostDraw();
 #pragma endregion
 }

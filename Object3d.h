@@ -4,6 +4,9 @@
 #include <d3d12.h>
 #include <DirectXMath.h>
 #include <d3dx12.h>
+#include"CollisionInfo.h"
+
+//class BaseCollider;
 
 class Object3d
 {
@@ -25,11 +28,11 @@ public:
 	void Initialize(int window_width, int window_height);//デバイスを上ケトル
 	void CreateModel();
 	void Update();
-	//void PreDraw(ID3D12GraphicsCommandList * cmdList);
-	void Draw(ID3D12GraphicsCommandList * cmdList);
-	//void PostDraw();
+	static void PreDraw(ID3D12GraphicsCommandList * cmdList);
+	//void Draw(ID3D12GraphicsCommandList * cmdList);
+	void Draw();
+	static void PostDraw();
 	void LoadMaterial(const std::string& directoryPath,const std::string& filename);
-	//void LoadTexture(const std::string& directoryPath, const std::string& filename);
 	const XMFLOAT3& GetPosition() { return position; }
 	void SetPosition(XMFLOAT3 position) { this->position = position; }
 	bool LoadTexture(const std::string& directoryPath, const std::string& filename);
@@ -85,16 +88,15 @@ private:
 	ComPtr<ID3D12Resource> indexBuff;
 	static ID3D12Device* device;
 	XMMATRIX matView;//ビュー変換行列
-	ComPtr<ID3D12PipelineState> pipelinestate;
-	ComPtr<ID3D12RootSignature> rootsignature;
+	static ComPtr<ID3D12PipelineState> pipelinestate;
+	static ComPtr<ID3D12RootSignature> rootsignature;
 	XMFLOAT3 eye = { 0, 0, -50.0f };
 	XMFLOAT3 target = { 0, 0, 0 };
 	XMFLOAT3 up = { 0, 1, 0 };
 	D3D12_VERTEX_BUFFER_VIEW vbView{};
 	D3D12_INDEX_BUFFER_VIEW ibView{};
 	XMMATRIX matProjection;
-	ID3D12GraphicsCommandList* cmdList = nullptr;
-	//ComPtr<ID3D12DescriptorHeap> basicDescHeap;
+	static ID3D12GraphicsCommandList* cmdList;
 	CD3DX12_CPU_DESCRIPTOR_HANDLE cpuDescHandleSRV;
 	CD3DX12_GPU_DESCRIPTOR_HANDLE gpuDescHandleSRV;
 	UINT descriptorHandleIncrementSize = 0;

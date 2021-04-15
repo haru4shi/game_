@@ -14,6 +14,10 @@ using namespace DirectX;
 using namespace Microsoft::WRL;
 
 ID3D12Device* Object3d::device = nullptr;
+ID3D12GraphicsCommandList* Object3d::cmdList = nullptr;
+ComPtr<ID3D12RootSignature> Object3d::rootsignature;
+ComPtr<ID3D12PipelineState> Object3d::pipelinestate;
+
 
 void Object3d::StaticInitialize(ID3D12Device * device)
 {
@@ -395,8 +399,6 @@ void Object3d::CreateModel()
 	ibView.BufferLocation = indexBuff->GetGPUVirtualAddress();
 	ibView.Format = DXGI_FORMAT_R16_UINT;
 	ibView.SizeInBytes = sizeIB;
-
-
 }
 
 void Object3d::Update()
@@ -441,26 +443,24 @@ void Object3d::Update()
 	constBuffB1->Unmap(0, nullptr);
 }
 
-//void Object3d::PreDraw()
-//{
-//	// PreDrawとPostDrawがペアで呼ばれていなければエラー
-//	assert(cmdList == nullptr);
-//
-//	// コマンドリストをセット
-//	this->cmdList = cmdList;
-//
-//	
-//}
-
-void Object3d::Draw(ID3D12GraphicsCommandList * cmdList)
+void Object3d::PreDraw(ID3D12GraphicsCommandList* cmdList)
 {
+	// PreDrawとPostDrawがペアで呼ばれていなければエラー
+	//assert(cmdList == nullptr);
+
+	// コマンドリストをセット
+	Object3d::cmdList = cmdList;
+
 	//パイプラインステートの設定コマンド
 	cmdList->SetPipelineState(pipelinestate.Get());
 	//ルートシグネチャの設定コマンド
 	cmdList->SetGraphicsRootSignature(rootsignature.Get());
 	//プリミティブ形状の設定コマンド(三角形リスト)
 	cmdList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+}
 
+void Object3d::Draw()
+{
 	//頂点バッファの設定コマンド
 	cmdList->IASetVertexBuffers(0, 1, &vbView);
 	//インデックスバッファの設定コマンド
@@ -479,10 +479,10 @@ void Object3d::Draw(ID3D12GraphicsCommandList * cmdList)
 	cmdList->DrawIndexedInstanced((UINT)indices.size(), 1, 0, 0, 0);
 }
 
-//void Object3d::PostDraw()
-//{
-//	this->cmdList = nullptr;
-//}
+void Object3d::PostDraw()
+{
+	Object3d::cmdList = nullptr;
+}
 
 void Object3d::LoadMaterial(const std::string & directoryPath, const std::string & filename)
 {

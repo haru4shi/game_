@@ -12,9 +12,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	WinApp* win = nullptr;
 	DirectXCommon* dxCommon = nullptr;
 	Input* input = nullptr;
-	//Audio* audio = nullptr;
-	//Sprite* sprite = nullptr;
-	//Object3d* object3d = nullptr;
 	SceneManager* sceneManager = nullptr;
 
 	//ゲームウィンドウ作成
@@ -29,8 +26,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	input = new Input();
 	input->Initialize(win->GetHwnd(),win->GetInstance());
 
-	//sprite = new Sprite();
-	//sprite->StaticInitialize(dxCommon->GetDevice(), win->window_width, win->window_height);
 
 	// スプライト静的初期化
 	if (!Sprite::StaticInitialize(dxCommon->GetDevice(), win->window_width,win->window_height)) 
@@ -38,14 +33,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		assert(0);
 		return 1;
 	}
-
-	//Audioの初期化
-	//audio = new Audio();
-	//if (!audio->Initialize()) 
-	//{
-	//	assert(0);
-	//	return 1;
-	//}
 
 	//オブジェクトの初期化
 	Object3d::StaticInitialize(dxCommon->GetDevice());
@@ -88,7 +75,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	safe_delete(dxCommon);
 	safe_delete(sceneManager);
 	safe_delete(input);
-	//safe_delete(audio);
 	
 	//ウィンドウクラスを登録解除
 	win->TerminateGameWindow();

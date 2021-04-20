@@ -5,6 +5,7 @@
 #include<vector>
 #include<fstream>
 #include<sstream>
+#include"BaseCollider.h"
 
 
 #pragma comment(lib, "d3dcompiler.lib")
@@ -205,6 +206,14 @@ Object3d * Object3d::Create(int window_width, int window_height)
 	return object3d;
 }
 
+Object3d::~Object3d()
+{
+	if (collider)
+	{
+		delete collider;
+	}
+}
+
 void Object3d::Initialize(int window_width, int window_height)
 {
 	// デスクリプタヒープの初期化
@@ -240,6 +249,9 @@ void Object3d::Initialize(int window_width, int window_height)
 		D3D12_RESOURCE_STATE_GENERIC_READ,
 		nullptr,
 		IID_PPV_ARGS(&constBuffBO));
+
+	//クラス名の文字列を取得
+	name = typeid(*this).name();
 }
 
 void Object3d::CreateModel()
@@ -441,6 +453,12 @@ void Object3d::Update()
 	constMap1->speculer = material.specular;
 	constMap1->alpha = material.alpha;
 	constBuffB1->Unmap(0, nullptr);
+
+	//当たり判定更新
+	if (collider)
+	{
+		collider->Update();
+	}
 }
 
 void Object3d::PreDraw(ID3D12GraphicsCommandList* cmdList)
@@ -477,6 +495,12 @@ void Object3d::Draw()
 	cmdList->SetGraphicsRootDescriptorTable(2, gpuDescHandleSRV);
 	// 描画コマンド
 	cmdList->DrawIndexedInstanced((UINT)indices.size(), 1, 0, 0, 0);
+}
+
+void Object3d::SetCollider(BaseCollider* collider)
+{
+	collider->SetObject(this);
+	this->collider = collider;
 }
 
 void Object3d::PostDraw()

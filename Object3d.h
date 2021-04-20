@@ -6,7 +6,7 @@
 #include <d3dx12.h>
 #include"CollisionInfo.h"
 
-//class BaseCollider;
+class BaseCollider;
 
 class Object3d
 {
@@ -25,18 +25,34 @@ public:
 	void InitializeGraphicsPipeline();
 	void InitializeDescriptorHeap();
 	void InitializeCamera(int window_width, int window_height);
-	void Initialize(int window_width, int window_height);//デバイスを上ケトル
+	//void Initialize(int window_width, int window_height);//デバイスを上ケトル
 	void CreateModel();
-	void Update();
+	//void Update();
 	static void PreDraw(ID3D12GraphicsCommandList * cmdList);
-	//void Draw(ID3D12GraphicsCommandList * cmdList);
-	void Draw();
+	//void Draw();
 	static void PostDraw();
 	void LoadMaterial(const std::string& directoryPath,const std::string& filename);
 	const XMFLOAT3& GetPosition() { return position; }
 	void SetPosition(XMFLOAT3 position) { this->position = position; }
 	bool LoadTexture(const std::string& directoryPath, const std::string& filename);
 
+	//コンストラクタ
+	Object3d() = default;
+	//仮想デストラクタ
+	virtual ~Object3d();
+	//初期化
+	virtual void Initialize(int window_width, int window_height);
+	virtual void Update();
+	virtual void Draw();
+
+	//ワールド行列取得
+	const XMMATRIX& GetMatWorld() { return matWorld; }
+
+	//コライダーのセット
+	void SetCollider(BaseCollider* collider);
+
+	//衝突時のコールバック関数
+	virtual void OnCollision(const CollisionInfo& info){}
 
 public:
 	//構造体
@@ -103,7 +119,7 @@ private:
 	ComPtr<ID3D12DescriptorHeap> descHeap;
 	ComPtr<ID3D12Resource> texbuff;
 
-private:
+protected:
 	ComPtr<ID3D12Resource> constBuffBO;// 定数バッファ
 	ComPtr<ID3D12Resource> constBuffB1;// 定数バッファ
 	XMFLOAT3 rotation = { 0,0,0 };
@@ -113,5 +129,10 @@ private:
 	XMMATRIX matWorld;
 	//親オブジェクト
 	Object3d* parent = nullptr;
+
+	//クラス名(デバッグ用)
+	const char* name = nullptr;
+	//コライダー
+	BaseCollider* collider = nullptr;
 };
 

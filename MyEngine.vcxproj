@@ -162,6 +162,7 @@
     <ClCompile Include="BaseScene.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="CollisionInfo.cpp" />
+    <ClCompile Include="CollisionPrimitive.cpp" />
     <ClCompile Include="CollisionTypes.cpp" />
     <ClCompile Include="DirectXCommon.cpp" />
     <ClCompile Include="GameClear.cpp" />
@@ -172,6 +173,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Object3d.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="SphereCollider.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Task.cpp" />
     <ClCompile Include="Title.cpp" />
@@ -183,6 +185,7 @@
     <ClInclude Include="BaseScene.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="CollisionInfo.h" />
+    <ClInclude Include="CollisionPrimitive.h" />
     <ClInclude Include="CollisionTypes.h" />
     <ClInclude Include="DirectXCommon.h" />
     <ClInclude Include="GameClear.h" />
@@ -193,6 +196,7 @@
     <ClInclude Include="Object3d.h" />
     <ClInclude Include="SafeDelete.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="SphereCollider.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Task.h" />
     <ClInclude Include="Title.h" />

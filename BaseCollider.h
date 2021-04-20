@@ -2,6 +2,7 @@
 
 #include"CollisionTypes.h"
 #include"Object3d.h"
+#include"CollisionInfo.h"
 
 
 class BaseCollider
@@ -27,6 +28,12 @@ public:
 	inline CollisionShapeType GetShapeType()
 	{
 		return shapeType;
+	}
+
+	//衝突時コールバック関数
+	inline void OnCollision(const CollisionInfo& info)
+	{
+		object3d->OnCollision(info);
 	}
 
 protected:

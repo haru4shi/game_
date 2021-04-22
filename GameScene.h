@@ -2,6 +2,9 @@
 #include "ISceneChanger.h"
 #include<DirectXMath.h>
 #include "BaseScene.h"
+#include"CollisionManager.h"
+
+//class Collisionmanager;
 
 class GameScene:
 	public BaseScene
@@ -33,8 +36,14 @@ public: // メンバ関数
 private: // メンバ変数
 	DirectXCommon* dxCommon = nullptr;
 	Input* input = nullptr;
-	//Audio* audio = nullptr;
+	
+	float acceleration = 0.0001;
+	float speed = 0;
+
+	//衝突マネージャ
+	CollisionManager* collisionManager = nullptr;
 
 	Object3d* object3d = nullptr;
+	TestObject* testObject = nullptr;
 };
 

@@ -6,6 +6,7 @@
 #include<fstream>
 #include<sstream>
 #include"BaseCollider.h"
+#include"CollisionManager.h"
 
 
 #pragma comment(lib, "d3dcompiler.lib")
@@ -210,6 +211,8 @@ Object3d::~Object3d()
 {
 	if (collider)
 	{
+		//コリジョンマネージャから登録を解除する
+		CollisionManager::GetInstance()->RemoveCollider(collider);
 		delete collider;
 	}
 }
@@ -501,6 +504,10 @@ void Object3d::SetCollider(BaseCollider* collider)
 {
 	collider->SetObject(this);
 	this->collider = collider;
+	//コリジョンマネージャに登録
+	CollisionManager::GetInstance()->AddCollider(collider);
+	//コライダー更新
+	collider->Update();
 }
 
 void Object3d::PostDraw()

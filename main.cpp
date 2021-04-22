@@ -1,9 +1,9 @@
-#include"Input.h"
-#include"Sprite.h"
-#include"Object3d.h"
+//#include"Input.h"
+//#include"Sprite.h"
 #include"WinApp.h"
 #include"DirectXCommon.h"
 #include"SceneManager.h"
+#include"BaseScene.h"
 
 
 // Windows アプリでのエントリーポイント(main 関数)
@@ -36,6 +36,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
 	//オブジェクトの初期化
 	Object3d::StaticInitialize(dxCommon->GetDevice());
+
+	TestObject::StaticInitialize(dxCommon->GetDevice());
 
 	//ゲームシーンの初期化
 	sceneManager = new SceneManager();

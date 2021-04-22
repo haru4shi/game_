@@ -10,7 +10,7 @@ class BaseCollider;
 
 class Object3d
 {
-private: // エイリアス
+protected: // エイリアス
 // Microsoft::WRL::を省略
 	template <class T> using ComPtr = Microsoft::WRL::ComPtr<T>;
 	// DirectX::を省略

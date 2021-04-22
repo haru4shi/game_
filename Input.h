@@ -22,6 +22,8 @@ public:
 	//キーのトリガーチェック
 	bool Trigger(int keyNumber);
 
+	static Input* GetInstance();
+
 private:
 	ComPtr<IDirectInput8> dinput;
 	ComPtr<IDirectInputDevice8> devkeyboard;

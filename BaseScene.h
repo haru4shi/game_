@@ -8,7 +8,7 @@
 #include "Input.h"
 #include "Sprite.h"
 #include "Object3d.h"
-//#include "Audio.h"
+#include"TestObject.h"
 
 class BaseScene :
 	public Task

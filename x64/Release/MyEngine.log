@@ -1,0 +1,35 @@
+﻿  compilation object save succeeded; see C:\Users\K019G1566\Desktop\ゲーム大賞制作\x64\Release\BasicPixelShader.cso
+  compilation object save succeeded; see C:\Users\K019G1566\Desktop\ゲーム大賞制作\x64\Release\BasicVertexShader.cso
+  compilation object save succeeded; see C:\Users\K019G1566\Desktop\ゲーム大賞制作\x64\Release\SpritePixelSharder.cso
+  compilation object save succeeded; see C:\Users\K019G1566\Desktop\ゲーム大賞制作\x64\Release\SpriteVertexShader.cso
+  Audio.cpp
+  BaseCollider.cpp
+  BaseScene.cpp
+  Collision.cpp
+  CollisionInfo.cpp
+  CollisionPrimitive.cpp
+  CollisionTypes.cpp
+  DirectXCommon.cpp
+C:\Users\K019G1566\Desktop\ゲーム大賞制作\DirectXCommon.cpp(58,87): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
+C:\Users\K019G1566\Desktop\ゲーム大賞制作\DirectXCommon.cpp(58,65): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
+  GameClear.cpp
+  GameOver.cpp
+  GameScene.cpp
+C:\Users\K019G1566\Desktop\ゲーム大賞制作\GameScene.h(37,21): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
+  Input.cpp
+  ISceneChanger.cpp
+  main.cpp
+  Object3d.cpp
+  SceneManager.cpp
+C:\Users\K019G1566\Desktop\ゲーム大賞制作\GameScene.h(37,21): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
+  SphereCollider.cpp
+  Sprite.cpp
+  Task.cpp
+  Title.cpp
+  コンパイル中...
+  WinApp.cpp
+  コード生成しています。
+  Previous IPDB not found, fall back to full compilation.
+  All 873 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  コード生成が終了しました。
+  MyEngine.vcxproj -> C:\Users\K019G1566\Desktop\ゲーム大賞制作\x64\Release\MyEngine.exe

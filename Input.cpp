@@ -37,10 +37,8 @@ void Input::Update()
 	{
 		keyPre[i] = key[i];
 	}
-
 	//‘SƒL[‚Ì“ü—Íó‘Ô‚ðŽæ“¾‚·‚é
 	result = devkeyboard->GetDeviceState(sizeof(key), key);
-
 }
 
 bool Input::IsPush(int keyNumber)
@@ -85,4 +83,11 @@ bool Input::Trigger(int keyNumber)
 		return true;
 	}
 	return false;
+}
+
+Input* Input::GetInstance()
+{
+	static Input instance;
+
+	return &instance;
 }

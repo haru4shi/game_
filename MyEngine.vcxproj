@@ -162,6 +162,7 @@
     <ClCompile Include="BaseScene.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="CollisionInfo.cpp" />
+    <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="CollisionPrimitive.cpp" />
     <ClCompile Include="CollisionTypes.cpp" />
     <ClCompile Include="DirectXCommon.cpp" />
@@ -176,6 +177,7 @@
     <ClCompile Include="SphereCollider.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Task.cpp" />
+    <ClCompile Include="TestObject.cpp" />
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="WinApp.cpp" />
   </ItemGroup>
@@ -185,6 +187,7 @@
     <ClInclude Include="BaseScene.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="CollisionInfo.h" />
+    <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="CollisionPrimitive.h" />
     <ClInclude Include="CollisionTypes.h" />
     <ClInclude Include="DirectXCommon.h" />
@@ -199,6 +202,7 @@
     <ClInclude Include="SphereCollider.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Task.h" />
+    <ClInclude Include="TestObject.h" />
     <ClInclude Include="Title.h" />
     <ClInclude Include="WinApp.h" />
   </ItemGroup>

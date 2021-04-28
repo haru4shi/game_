@@ -9,6 +9,8 @@
 #include "Sprite.h"
 #include "Object3d.h"
 #include"TestObject.h"
+#include"Stage1Item1.h"
+#include"Stage1Item2.h"
 
 class BaseScene :
 	public Task

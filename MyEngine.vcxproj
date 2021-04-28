@@ -176,6 +176,8 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SphereCollider.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="Stage1Item1.cpp" />
+    <ClCompile Include="Stage1Item2.cpp" />
     <ClCompile Include="Task.cpp" />
     <ClCompile Include="TestObject.cpp" />
     <ClCompile Include="Title.cpp" />
@@ -201,6 +203,8 @@
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SphereCollider.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="Stage1Item1.h" />
+    <ClInclude Include="Stage1Item2.h" />
     <ClInclude Include="Task.h" />
     <ClInclude Include="TestObject.h" />
     <ClInclude Include="Title.h" />

@@ -1,5 +1,3 @@
-//#include"Input.h"
-//#include"Sprite.h"
 #include"WinApp.h"
 #include"DirectXCommon.h"
 #include"SceneManager.h"
@@ -34,10 +32,12 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		return 1;
 	}
 
-	//オブジェクトの初期化
+#pragma region オブジェクト初期化
 	Object3d::StaticInitialize(dxCommon->GetDevice());
-
 	TestObject::StaticInitialize(dxCommon->GetDevice());
+	Stage1Item1::StaticInitialize(dxCommon->GetDevice());
+	Stage1Item2::StaticInitialize(dxCommon->GetDevice());
+#pragma endregion
 
 	//ゲームシーンの初期化
 	sceneManager = new SceneManager();

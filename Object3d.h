@@ -123,7 +123,7 @@ protected:
 	ComPtr<ID3D12Resource> constBuffBO;// 定数バッファ
 	ComPtr<ID3D12Resource> constBuffB1;// 定数バッファ
 	XMFLOAT3 rotation = { 0,0,0 };
-	XMFLOAT3 position = { -40,-20,0 };
+	XMFLOAT3 position = { 0,-20,0 };
 	XMFLOAT4 color = { 1,1,1,1 };
 	XMFLOAT3 scale = { 1,1,1 };
 	XMMATRIX matWorld;

@@ -44,6 +44,25 @@ private: // メンバ変数
 	CollisionManager* collisionManager = nullptr;
 
 	Object3d* object3d = nullptr;
-	TestObject* testObject = nullptr;
+	//TestObject* testObject = nullptr;
+	Stage1Item1* stage1Item1 = nullptr;
+	Stage1Item2* stage1Item2 = nullptr;
+
+	//メッセージ
+	Sprite* rigthMessage = nullptr;
+	Sprite* leftMesssage = nullptr;
+	Sprite* message = nullptr;
+
+	//bool
+	bool DrawMessage = false;
+	bool DrawRaightMessage = false;
+	bool DrawLeftMessage = false;
+
+	bool Item1Get = false;
+	bool Item2Get = false;
+	bool AllitemGet = false;
+
+	bool DrawItem1 = true;
+	bool DrawItem2 = true;
 };
 

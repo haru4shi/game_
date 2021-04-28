@@ -2,7 +2,6 @@
 #include"SphereCollider.h"
 #include"Input.h"
 
-
 using namespace DirectX;
 
 TestObject* TestObject::Create(int window_width, int window_height)

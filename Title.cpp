@@ -5,11 +5,15 @@ Title::Title(ISceneChanger * changer)
 {
 }
 
-void Title::Initialize(DirectXCommon * dxCommon, Input * input/*, Audio* audio*/)
+void Title::Initialize(DirectXCommon * dxCommon, Input * input, Audio* audio)
 {
 	this->dxCommon = dxCommon;
 	this->input = input;
-	//this->audio = audio;
+	this->audio = audio;
+
+	assert(audio);
+
+	audio->Initialize();
 
 	Sprite::LoadTexture(1, L"Resources/背景1.png");
 
@@ -20,6 +24,10 @@ void Title::Update()
 	if (input->Trigger(DIK_SPACE))
 	{
 		mSceneChanger->ChangeScene(eScene_Game);//シーンをゲーム画面に変更
+	}
+	if (input->Trigger(DIK_A))
+	{
+		audio->PlayWave("Resources/Alarm01.wav");//更新
 	}
 }
 

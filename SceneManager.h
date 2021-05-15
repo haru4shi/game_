@@ -12,11 +12,11 @@ private:
 	eScene mNextScene;    //次のシーン管理変数
 	DirectXCommon* dxCommon = nullptr;
 	Input* input = nullptr;
-	//Audio* audio = nullptr;
+	Audio* audio = nullptr;
 
 public:
 	SceneManager();
-	void Initialize(DirectXCommon* dxCommon, Input* input/*, Audio* audio*/) override;//初期化
+	void Initialize(DirectXCommon* dxCommon, Input* input, Audio* audio) override;//初期化
 	void Finalize() override;//終了処理
 	void Update() override;//更新
 	void Draw() override;//描画

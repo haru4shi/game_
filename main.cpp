@@ -11,6 +11,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	DirectXCommon* dxCommon = nullptr;
 	Input* input = nullptr;
 	SceneManager* sceneManager = nullptr;
+	Audio* audio = nullptr;
 
 	//ゲームウィンドウ作成
 	win = new WinApp();
@@ -24,6 +25,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	input = new Input();
 	input->Initialize(win->GetHwnd(),win->GetInstance());
 
+	//audio初期化
+	audio = new Audio();
+	audio->Initialize();
 
 	// スプライト静的初期化
 	if (!Sprite::StaticInitialize(dxCommon->GetDevice(), win->window_width,win->window_height)) 
@@ -37,11 +41,12 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	TestObject::StaticInitialize(dxCommon->GetDevice());
 	Stage1Item1::StaticInitialize(dxCommon->GetDevice());
 	Stage1Item2::StaticInitialize(dxCommon->GetDevice());
+	Stage1uraBlockObject::StaticInitialize(dxCommon->GetDevice());
 #pragma endregion
 
 	//ゲームシーンの初期化
 	sceneManager = new SceneManager();
-	sceneManager->Initialize(dxCommon, input);
+	sceneManager->Initialize(dxCommon, input,audio);
 
 	while (1)
 	{
@@ -77,6 +82,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	safe_delete(dxCommon);
 	safe_delete(sceneManager);
 	safe_delete(input);
+	safe_delete(audio);
 	
 	//ウィンドウクラスを登録解除
 	win->TerminateGameWindow();

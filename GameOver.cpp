@@ -4,11 +4,11 @@ GameOver::GameOver(ISceneChanger * changer)
 {
 }
 
-void GameOver::Initialize(DirectXCommon * dxCommon, Input * input/*, Audio* audio*/)
+void GameOver::Initialize(DirectXCommon * dxCommon, Input * input, Audio* audio)
 {
 	this->dxCommon = dxCommon;
 	this->input = input;
-	//this->audio = audio;
+	this->audio = audio;
 
 	gameoversprite->LoadTexture(1, L"Resources/GameOver.png");
 

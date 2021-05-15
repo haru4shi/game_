@@ -178,8 +178,11 @@
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Stage1Item1.cpp" />
     <ClCompile Include="Stage1Item2.cpp" />
+    <ClCompile Include="Stage1ura.cpp" />
+    <ClCompile Include="Stage1uraBlockObject.cpp" />
     <ClCompile Include="Task.cpp" />
     <ClCompile Include="TestObject.cpp" />
+    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="WinApp.cpp" />
   </ItemGroup>
@@ -205,8 +208,11 @@
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Stage1Item1.h" />
     <ClInclude Include="Stage1Item2.h" />
+    <ClInclude Include="Stage1ura.h" />
+    <ClInclude Include="Stage1uraBlockObject.h" />
     <ClInclude Include="Task.h" />
     <ClInclude Include="TestObject.h" />
+    <ClInclude Include="Timer.h" />
     <ClInclude Include="Title.h" />
     <ClInclude Include="WinApp.h" />
   </ItemGroup>

@@ -5,15 +5,15 @@ BaseScene::BaseScene(ISceneChanger * changer)
 {
 }
 
-void BaseScene::Initialize(DirectXCommon * dxCommon, Input * input)
+void BaseScene::Initialize(DirectXCommon * dxCommon, Input * input,Audio* audio)
 {
 	assert(dxCommon);
 	assert(input);
-	//assert(audio);
+	assert(audio);
 
 	this->dxCommon = dxCommon;
 	this->input = input;
-	//this->audio = audio;
+	this->audio = audio;
 }
 
 void BaseScene::Finalize()

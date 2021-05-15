@@ -6,11 +6,13 @@
 #include "DirectXCommon.h"
 #include <DirectXMath.h>
 #include "Input.h"
+#include"Audio.h"
 #include "Sprite.h"
 #include "Object3d.h"
 #include"TestObject.h"
 #include"Stage1Item1.h"
 #include"Stage1Item2.h"
+#include"Stage1uraBlockObject.h"
 
 class BaseScene :
 	public Task
@@ -30,7 +32,7 @@ protected:
 	Input* input = nullptr;
 	Sprite* sprite1 = nullptr;
 	Sprite* sprite2 = nullptr;
-	//Audio* audio = nullptr;
+	Audio* audio = nullptr;
 
 protected: // 静的メンバ変数
 	static const int debugTextTexNumber = 0;
@@ -38,7 +40,7 @@ protected: // 静的メンバ変数
 public:
 	BaseScene(ISceneChanger* changer);
 	virtual ~BaseScene() {}
-	virtual void Initialize(DirectXCommon* dxCommon, Input* input/*,Audio* audio*/) override;    //初期化処理をオーバーライド。
+	virtual void Initialize(DirectXCommon* dxCommon, Input* input,Audio* audio) override;    //初期化処理をオーバーライド。
 	virtual void Finalize() override;        //終了処理をオーバーライド。
 	virtual void Update() override;        //更新処理をオーバーライド。
 	virtual void Draw() override;            //描画処理をオーバーライド。

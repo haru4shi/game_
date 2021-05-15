@@ -3,7 +3,7 @@ typedef enum
 {
 	eScene_Title,    //メニュー画面
 	eScene_Game,    //ゲーム画面(1ステージ目)
-	eScene_Stage2,  //2ステージ目
+	eScene_Stage1ura,  //1ステージ目裏
 	eScene_Stage3,  //3ステージ目
 	eScene_Stage4,  //4ステージ目
 	eScene_Stage5,  //5ステージ目

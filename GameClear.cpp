@@ -4,11 +4,11 @@ GameClear::GameClear(ISceneChanger * changer)
 {
 }
 
-void GameClear::Initialize(DirectXCommon * dxCommon, Input * input)
+void GameClear::Initialize(DirectXCommon * dxCommon, Input * input,Audio* audio)
 {
 	this->dxCommon = dxCommon;
 	this->input = input;
-	//this->audio = audio;
+	this->audio = audio;
 
 	gameclearsprite->LoadTexture(1, L"Resources/GameClear.png");
 

@@ -3,10 +3,9 @@
 #include<DirectXMath.h>
 #include "BaseScene.h"
 #include"CollisionManager.h"
+#include"GameScene.h"
 
-//class Collisionmanager;
-
-class GameScene:
+class Stage1ura:
 	public BaseScene
 {
 private: // エイリアス
@@ -23,9 +22,9 @@ private: // 静的メンバ変数
 
 public: // メンバ関数
 
-	GameScene(ISceneChanger* changer);
+	Stage1ura(ISceneChanger* changer);
 
-	~GameScene();
+	~Stage1ura();
 
 	void Initialize(DirectXCommon* dxCommon, Input* input, Audio* audio);
 
@@ -36,17 +35,13 @@ public: // メンバ関数
 private: // メンバ変数
 	DirectXCommon* dxCommon = nullptr;
 	Input* input = nullptr;
-	
-	float acceleration = 0.0001;
-	float speed = 0;
-
+	Audio* audio = nullptr;
 	//衝突マネージャ
 	CollisionManager* collisionManager = nullptr;
 
 	Object3d* object3d = nullptr;
 	Stage1Item1* stage1Item1 = nullptr;
 	Stage1Item2* stage1Item2 = nullptr;
-	Stage1uraBlockObject* stage1uraObj = nullptr;
 
 	//メッセージ
 	Sprite* rigthMessage = nullptr;
@@ -64,17 +59,5 @@ private: // メンバ変数
 
 	bool DrawItem1 = true;
 	bool DrawItem2 = true;
-
-	//足場出現フラグ
-	bool scaffold = false;
-
-	//背景チェンジフラグ
-	bool behind = false;
-
-	//裏表チェンジ
-	bool change = false;
-
-	//ベクトル
-	float velocity = 1;
 };
 

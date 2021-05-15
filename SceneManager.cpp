@@ -3,6 +3,7 @@
 #include"GameScene.h"
 #include "GameClear.h"
 #include "GameOver.h"
+#include"Stage1ura.h"
 
 SceneManager::SceneManager() :
 	mNextScene(eScene_None) //次のシーン管理変数
@@ -11,13 +12,15 @@ SceneManager::SceneManager() :
 }
 
 //初期化
-void SceneManager::Initialize(DirectXCommon* dxCommon, Input* input)
+void SceneManager::Initialize(DirectXCommon* dxCommon, Input* input,Audio* audio)
 {
 	this->dxCommon = dxCommon;
 	this->input = input;
-	//this->audio = audio;
+	this->audio = audio;
 
-	mScene->Initialize(dxCommon, input/*,audio*/);
+	assert(audio);
+
+	mScene->Initialize(dxCommon, input, audio);
 }
 
 //終了処理
@@ -41,6 +44,9 @@ void SceneManager::Update()
 		case eScene_Game:
 			mScene = (BaseScene*) new GameScene(this);
 			break;
+		case eScene_Stage1ura:
+			mScene = (BaseScene*) new Stage1ura(this);
+			break;
 		case eScene_GameClear:
 			mScene = (BaseScene*) new GameClear(this);
 			break;
@@ -49,7 +55,7 @@ void SceneManager::Update()
 			break;
 		}
 		mNextScene = eScene_None;    //次のシーン情報をクリア
-		mScene->Initialize(dxCommon, input);    //シーンを初期化
+		mScene->Initialize(dxCommon, input, audio);    //シーンを初期化
 	}
 	mScene->Update(); //シーンの更新
 }
